@@ -1,0 +1,76 @@
+producten = int(input("geef het aantal producten in: "))
+totaal = 0
+for x in range(producten):
+    correct = False
+    while correct is False:
+        meting = int(input("Je gemeten waarde: "))
+        kh_per_100g = int(input("aantal koolhydraten per 100g: "))
+        hoeveelheid = int(input("hoeveel: "))
+        print("je meting =", meting, "\naantal koolhydraten:", kh_per_100g,"kh/100g", "\nje eet:", hoeveelheid, "g")
+        controle = input("klopt dit(ja/nee): ")
+        controle.lower()
+        if controle == "nee":
+            correct = False
+        else:
+            correct = True
+
+    KHP = (kh_per_100g/100 * hoeveelheid)/12.5
+
+    tussendoortje = input("tussendoortje (ja/nee): ")
+    tussendoortje.lower()
+    if tussendoortje == "ja":
+        KHP + 1
+
+    Tijdstip = int(input("Is het ochtend (1), middag(2) of avond(3)?: "))
+    if Tijdstip == 1:
+        KHP * 1.5
+    elif Tijdstip == 2:
+        KHP * 1
+    else:
+        KHP * 1
+
+    if meting in [125, 150]:
+        KHP + 0.5
+
+    if meting in [150, 175]:
+        KHP + 1
+
+    if meting in [175, 200]:
+        KHP + 1.5
+
+    if meting in [200, 225]:
+        KHP + 2
+
+    if meting in [225, 250]:
+        KHP + 2.5
+
+    if meting in [250, 275]:
+        KHP + 3
+
+    if meting in [275, 300]:
+        KHP + 3.5
+
+    if meting in [300, 325]:
+        KHP + 4
+
+    if meting in [325, 350]:
+        KHP + 4.5
+
+    if meting > 350:
+        KHP + 5
+
+    Sport = input('Geen sport(1), matig sporten(2) of hard sporten(3)?: ')
+    if Sport == 2:
+        KHP * 0.3
+    elif Sport == 3:
+        KHP * 0.5
+    totaal += KHP
+    print('| meting   |', meting, "     |")
+    print('| kh/100g  |', kh_per_100g, "|")
+    print('| portie   |', hoeveelheid, "|")
+    print('| KHP      |', KHP, "        |")
+    input("----Volgende----")
+
+
+print('| totaal KHP   |', totaal, "     |")
+17/12/2019 10:27
